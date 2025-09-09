@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vishal Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: roboto, sans-serif;
+        color: white;
+        background-color: grey;
+      }
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #222;
+        padding: 10px;
+        height: 50px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+      .nav-link:hover {
+        color: red;
+        transition: 0.3 ease-in-out;
+      }
+      nav ul li {
+        margin: 30px;
+        justify-content: flex-end;
+      }
+      .nav-link {
+        color: white;
+        text-decoration: none;
+      }
+      .left {
+        font-size: 1.5rem;
+      }
+      .home-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 33px 0;
+      }
+      .home-section h1 {
+        font-size: 2rem;
+      }
+      .home-left-section {
+        font-size: 1.7rem;
+      }
+      .home-section span {
+        color: red;
+      }
+      .home-right-section {
+        display: flex;
+        margin-top: 30px;
+      }
+      .home-right-section img {
+        width: 300px;
+        height: 300px;
+        border-radius: 100%;
+      }
+      #about {
+        padding: 80px 0;
+        color: #222;
+        background-color: black;
+      }
+      .about-col-1 {
+        width: 50%;
+        padding: 20px;
+        background-color: black;
+        color: white;
+        flex-basis: 35%;
+        text-align: left;
+        
+      }
+      .about-col-1 h1 {
+        font-size: 2.5rem;
+      }
+
+      .about-col-1 span {
+        color: red;
+      }
+
+     
+      
+
+      #services {
+        padding: 50px 20px;
+        background-color: grey;
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        text-align: center;
+      }
+      .sub-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        color: white;
+      }
+      .sub-tilte span {
+        color: red;
+      }
+      .services-list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .services-list div {
+        flex: 1;
+        min-width: 300px;
+        background: navy;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .services-list h2 {
+        font-size: 1.5rem;
+        color: red;
+        margin-bottom: 10px;
+      }
+      .services-list p {
+        font-size: 1rem;
+        color: white;
+        margin-bottom: 15px;
+      }
+      .services-list a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+      }
+      .services-list a:hover {
+        text-decoration: underline;
+      }
+      #contact {
+        padding: 50px 20px;
+        background-color: black;
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        text-align: center;
+      }
+      .contact-sub-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        color: white;
+      }
+      .contact-sub-title span {
+        color: red;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+      }
+      .contact-info,
+      .contact-form {
+        flex: 1;
+        min-width: 300px;
+      }
+      .contact-info {
+        text-align: left;
+      }
+      .contact-info h3 {
+        font-size: 1.5rem;
+        color: red;
+        margin-bottom: 15px;
+      }
+      .contact-info p {
+        font-size: 1rem;
+        color: white;
+        line-height: 1.6;
+      }
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+      }
+      .social-links a {
+        color: white;
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .social-links a:hover {
+        color: red;
+      }
+      .contact-form form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+      .contact-form button {
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      .contact-form button:hover {
+        background: #0056b3;
+      }
+      button{
+        margin-top: 10px;
+        padding: 10px 20px;
+        background: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      
+
+      }
+      .about-text h1{
+        font-size: 3rem;
+        
+      }
+      .main-image{
+        height: 500px;
+        width: 500px;
+       
+       
+        padding: 5px;
+
+      }
+      .main-image img{
+        width: 400px;
+        height: 500px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border: 1px solid black ;;
+        border-radius: 50%;
+        box-shadow: yellow;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="left">Vishal Giri</div>
+        <div class="Right">
+          <ul>
+            <li class="nav-item">
+              <a href="#home-section" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#services" class="nav-link">Services</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section class="home-section flex">
+          <div class="about-text">
+            <h1>Hello! I'm <span>Vishal Giri</span></h1>
+            <h2>I am a <span> Web developer</h2>
+          </div>
+          <div class="main-image">
+           <img src="giri.jpeg" alt="">
+        </div>
+    </section>
+    <div id="about">
+      <div class="container">
+        <div class="row">
+          <!-- About Content -->
+          <div class="about-col-1">
+            <h1>About <span>Me</span></h1>
+            <p>
+              Hi, I’m Vishal, a passionate and creative Front-End
+              Developer with a keen eye for design and user experience. With a
+              deep understanding of web development technologies, I specialize
+              in creating beautiful, responsive, and highly interactive user
+              interfaces that deliver seamless user experiences. My journey in
+              web development started [mention how long ago or when], and over
+              the years, I've honed my skills in HTML, CSS, JavaScript, and
+              frameworks like React and Vue.js. I believe in writing clean,
+              maintainable code and am always exploring new tools and
+              technologies to keep up with the ever-evolving web landscape.<br>
+              <button>Resume</button>
+            </p>
+          </div>
+
+          <!-- Tab Section -->
+          <div class="about-col-2">
+            
+            </div>
+
+            <!-- Tab Contents -->
+            
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="services">
+      <div class="container">
+        <h1 class="sub-title">My <span>Services</span></h1>
+        <div class="services-list">
+          <!-- Service 1 -->
+          <div>
+            <h2>Web Design</h2>
+            <p>
+              As a Web Designer, I specialize in crafting visually appealing,
+              user-friendly, and responsive websites that cater to the needs of
+              both the client and the end-user.
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+          <!-- Service 2 -->
+          <div>
+            <h2>UI/UX Design</h2>
+            <p>
+              As a UI/UX Designer, I focus on creating exceptional digital
+              experiences that blend design and functionality seamlessly.
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+          <!-- Service 3 -->
+          <div>
+            <h2>App Design</h2>
+            <p>
+              As a Front-End Developer with a strong focus on user experience, I
+              offer comprehensive App Design Services that ensure your
+              application is visually stunning, functional, and user-friendly.
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="contact">
+      <div class="container">
+        <h1 class="contact-sub-title">Contact <span>Me</span></h1>
+        <div class="row">
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:designer@example.com">tarungiri5562@gmail.com</a>
+            </p>
+            <!-- <p><strong>Phone:</strong> +91 8882128863</p> -->
+            <p>
+              <strong>Address:</strong>vill- Kamruddin Nagar,Samana
+                 Distt- Hapur
+            </p>
+            <h3>Follow Me</h3>
+            <div class="social-links">
+              <a
+                href="https://github.com/vishalgiri9457"
+                target="_blank"
+                title="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <!-- <a
+                href="https://www.linkedin.com/in/vishal-b40b2530b/"
+                target="_blank"
+                title="LinkedIn"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a> -->
+              <a href="tel:+91 XXXXXXXXXX" title="Call">
+                <i class="fas fa-phone"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Contact Form -->
+          <div class="contact-form">
+            <form>
+              <input type="text" placeholder="Your Name" required />
+              <input type="email" placeholder="Your Email" required />
+              <textarea rows="5" placeholder="Your Message" required></textarea>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>

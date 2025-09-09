@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Amazon Replica</title>
+<style>
+  
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: blueviolet;
+  }
+
+  
+  header {
+    background-color: #131921;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+
+  .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color:orangered;
+    margin-right: 30px;
+    cursor: pointer;
+  }
+
+  .search-bar {
+    flex-grow: 1;
+    display: flex;
+  }
+
+  .search-bar input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 3px 0 0 3px;
+    font-size: 16px;
+  }
+
+  .search-bar button {
+    background-color: #febd69;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 0 3px 3px 0;
+    font-weight: bold;
+  }
+
+  
+  nav {
+    background-color: #232f3e;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    gap: 15px;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 8px;
+    border-radius: 3px;
+  }
+
+  nav a:hover {
+    background-color: #37475a;
+  }
+
+  
+  main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .banner {
+    width: 100%;
+    height: 300px;
+    background: url('https://images-eu.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Events/prime_day/PD_Superhero-1500x300._CB664874400_.jpg') no-repeat center/cover;
+    border-radius: 5px;
+    margin-bottom: 30px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+  }
+
+  .product {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .product img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 15px;
+  }
+
+  .product-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #0f1111;
+    flex-grow: 1;
+  }
+
+  .product-price {
+    font-weight: bold;
+    color: #b12704;
+    margin-bottom: 10px;
+  }
+
+  .product-rating {
+    color: #ffa41c;
+  }
+
+  
+  footer {
+    background-color: #232f3e;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">amazon</div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search Amazon" />
+    <button>🔍</button>
+  </div>
+</header>
+
+<nav>
+  <a href="#">Best Sellers</a>
+  <a href="#">Customer Service</a>
+  <a href="#">Prime</a>
+  <a href="#">New Releases</a>
+  <a href="#">Today's Deals</a>
+</nav>
+
+<main>
+  <div class="banner"></div>
+
+  <section class="products-grid">
+    <article class="product">
+      <img src="https://m.media-amazon.com/images/I/61etD4-IrPL._AC_UY218_.jpg" alt="Echo Dot" />
+      <div class="product-title">Echo Dot (3rd Gen) - Smart speaker with Alexa</div>
+      <div class="product-price">$39.99</div>
+      <div class="product-rating">⭐⭐⭐⭐☆</div>
+    </article>
+
+    <article class="product">
+      <img src="https://m.media-amazon.com/images/I/71a74Tj2P-L._AC_UY218_.jpg" alt="Fire TV Stick" />
+      <div class="product-title">Fire TV Stick 4K streaming device with Alexa Voice Remote</div>
+      <div class="product-price">$49.99</div>
+      <div class="product-rating">⭐⭐⭐⭐⭐</div>
+    </article>
+
+    <article class="product">
+      <img src="https://m.media-amazon.com/images/I/81vpsIs58WL._AC_UY218_.jpg" alt="Kindle Paperwhite" />
+      <div class="product-title">Kindle Paperwhite – Now Waterproof with 2x the Storage</div>
+      <div class="product-price">$129.99</div>
+      <div class="product-rating">⭐⭐⭐⭐⭐</div>
+    </article>
+
+    <article class="product">
+      <img src="https://m.media-amazon.com/images/I/71wEqm76ryL._AC_UY218_.jpg" alt="Instant Pot" />
+      <div class="product-title">Instant Pot Duo 7-in-1 Electric Pressure Cooker</div>
+      <div class="product-price">$89.99</div>
+      <div class="product-rating">⭐⭐⭐⭐☆</div>
+    </article>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Amazon Replica. All rights reserved.
+</footer>
+
+</body>
+</html>
