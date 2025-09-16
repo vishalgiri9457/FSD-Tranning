@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>To Do List</title>
+<style>
+  body{
+    font-family: Arial, sans-serif;
+    background:#f2f6fa;
+    display:flex;
+    justify-content:center;
+    padding:30px;
+  }
+  .container{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    width:350px;
+  }
+  h2{
+    margin:0 0 10px;
+  }
+  .add-row{
+    display:flex;
+    gap:8px;
+  }
+  .add-row input{
+    flex:1;
+    padding:8px;
+    border:1px solid #ccc;
+    border-radius:6px;
+  }
+  .add-row button{
+    padding:8px 14px;
+    border:none;
+    background:#007bff;
+    color:#fff;
+    border-radius:6px;
+    cursor:pointer;
+  }
+  .tasks{
+    margin-top:15px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .task{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:8px 10px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    background:#fafafa;
+  }
+  .task .title{
+    font-size:15px;
+  }
+  .task.completed .title{
+    text-decoration: line-through;
+    color:#888;
+  }
+  .right-actions{
+    display:flex;
+    gap:6px;
+    align-items:center;
+  }
+  .right-actions input[type="checkbox"]{
+    width:18px;
+    height:18px;
+    cursor:pointer;
+  }
+  .delete-btn{
+    background:#e74c3c;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:4px 8px;
+    cursor:pointer;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>My To-Do List</h1>
+    <!-- <p>You have <span id="count">0</span> task(s) to complete</p> -->
+
+    <div class="add-row">
+      <input id="newTask" type="text" placeholder="Add new task">
+      <button onclick="addTask()">Add</button>
+    </div>
+
+    <div class="tasks" id="taskList"></div>
+  </div>
+
+<script>
+let tasks=[];
+
+function render(){
+  const list=document.getElementById('taskList');
+  list.innerHTML='';
+  tasks.forEach((task,i)=>{
+    const item=document.createElement('div');
+    item.className='task'+(task.done?' completed':'');
+    item.innerHTML=`
+      <div class="title">${task.title}</div>
+      <div class="right-actions">
+        <input type="checkbox" ${task.done?'checked':''} onchange="toggleTask(${i})">
+        <button class="delete-btn" onclick="deleteTask(${i})">🗑</button>
+      </div>
+    `;
+    list.appendChild(item);
+  });
+  document.getElementById('count').textContent=tasks.filter(t=>!t.done).length;
+}
+
+function addTask(){
+  const inp=document.getElementById('newTask');
+  const title=inp.value.trim();
+  if(!title) return;
+  tasks.push({title,done:false});
+  inp.value='';
+  render();
+}
+
+function toggleTask(i){
+  tasks[i].done=!tasks[i].done;
+  render();
+}
+
+function deleteTask(i){
+  tasks.splice(i,1);
+  render();
+}
+
+</script>
+</body>
+</html>
