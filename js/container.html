@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 400px; border: 2px solid #333; padding: 20px; font-family: Arial, sans-serif;">
+  <h2 style="text-align: center; margin: 0 0 20px 0;">HI</h2>
+
+  <div style="display: flex; align-items: center; margin-bottom: 20px;">
+    <label for="input1" style="flex: 1;">Label:</label>
+    <input type="text" id="input1" style="flex: 2; padding: 5px;" />
+  </div>
+
+  <div style="text-align: center; margin-bottom: 20px;">
+    <button
+      onclick="
+        var input=document.getElementById('input1');
+        var val=input.value.trim();
+        if(val){
+          var ul=document.getElementById('itemList');
+          var li=document.createElement('li');
+          li.textContent=val;
+          ul.appendChild(li);
+          input.value='';
+          input.focus();
+        }
+      "
+      style="padding: 8px 16px; cursor: pointer;"
+    >Add</button>
+  </div>
+
+  <ul id="itemList" style="padding-left: 20px;"></ul>
+</div>
+
+
+</body>
+</html>

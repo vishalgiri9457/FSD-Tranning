@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Marks System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #b3e5fc;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    h2 {
+      color: #003366;
+    }
+    .container {
+      width: 48%;
+    }
+    table {
+      width: 50%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    button {
+      padding: 2px;
+      margin-top: auto;
+      cursor: pointer;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background: #fff;
+    }
+    
+    
+        
+    
+    input {
+      padding: 5px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      width: 40%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Left Side -->
+  <div class="container">
+    <h2>Student List</h2>
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Subject</th>
+          <th>Marks</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Right Side Controls -->
+  <div class="container controls">
+    <button onclick="showHighest()">Show Highest</button>
+    <button onclick="showAverage()">Show Average</button>
+    <button onclick="sortByMarks()">Sort by Marks</button>
+    <button onclick="resetSample()">Reset Sample</button>
+    <button onclick="removeLast()">Remove Last</button>
+
+    <input type="text" id="studentName" placeholder="Student name">
+    <input type="text" id="studentSubject" placeholder="Subject">
+    <input type="number" id="studentMarks" placeholder="Marks (0-100)">
+    <button onclick="addStudent()">Add Student</button>
+  </div>
+
+  <script>
+    let students = [
+      { name: "Alice", subject: "Math", marks: 85 },
+      { name: "Bob", subject: "Science", marks: 70 },
+      { name: "Charlie", subject: "English", marks: 92 }
+    ];
+
+    function renderTable() {
+      const tbody = document.querySelector("#studentTable tbody");
+      tbody.innerHTML = "";
+      students.forEach((s) => {
+        let row = `<tr>
+          <td>${s.name}</td>
+          <td>${s.subject}</td>
+          <td>${s.marks}</td>
+        </tr>`;
+        tbody.innerHTML += row;
+      });
+    }
+
+    function showHighest() {
+      if (students.length === 0) return alert("No students available!");
+      let top = students.reduce((a, b) => (a.marks > b.marks ? a : b));
+      alert(`Highest: ${top.name} (${top.subject}) - ${top.marks}`);
+    }
+
+    function showAverage() {
+      if (students.length === 0) return alert("No students available!");
+      let avg = students.reduce((sum, s) => sum + s.marks, 0) / students.length;
+      alert(`Average Marks: ${avg.toFixed(2)}`);
+    }
+
+    function sortByMarks() {
+      students.sort((a, b) => b.marks - a.marks);
+      renderTable();
+    }
+
+    function resetSample() {
+      students = [
+        { name: "Alice", subject: "Math", marks: 85 },
+        { name: "Bob", subject: "Science", marks: 70 },
+        { name: "Charlie", subject: "English", marks: 92 }
+      ];
+      renderTable();
+    }
+
+    function removeLast() {
+      if (students.length > 0) {
+        students.pop();
+        renderTable();
+      } else {
+        alert("No students to remove!");
+      }
+    }
+
+    function addStudent() {
+      const name = document.getElementById("studentName").value.trim();
+      const subject = document.getElementById("studentSubject").value.trim();
+      const marks = parseInt(document.getElementById("studentMarks").value);
+
+      if (!name || !subject || isNaN(marks)) {
+        alert("Please enter valid details!");
+        return;
+      }
+      students.push({ name, subject, marks });
+      renderTable();
+
+      document.getElementById("studentName").value = "";
+      document.getElementById("studentSubject").value = "";
+      document.getElementById("studentMarks").value = "";
+    }
+
+    
+    renderTable();
+  </script>
+
+</body>
+</html>
